@@ -5,10 +5,10 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import App from './containers/App'
 
 ReactDOM.render(
-    <Router>
-      <div>
-        <Route path="/" component={App} />
-      </div>
-    </Router>,
-    document.getElementById("container")
+  <Router>
+    <div>
+      <Route path="/" component={App} />
+    </div>
+  </Router>,
+  document.getElementById("container")
 )
