@@ -9,7 +9,12 @@ module.exports = {
     path: path.join(__dirname, 'public')
   },
   devServer: {
-    contentBase: path.join(__dirname, 'public')
+    historyApiFallback: true,
+    contentBase: path.join(__dirname, 'public'),
+    watchOptions: {
+      aggregateTimeout: 300,
+      poll: 1000
+    }
   },
   // plugins: [
   //   new LiveReloadPlugin()
