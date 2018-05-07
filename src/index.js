@@ -1,14 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { createStore, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+import reduxPromise from 'redux-promise'
 
+import rootReducer from './reducers'
 import App from './containers/App'
 
+const store = createStore(rootReducer, applyMiddleware(reduxPromise))
+
 ReactDOM.render(
-  <Router>
-    <div>
-      <Route path="/" component={App} />
-    </div>
-  </Router>,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById("container")
 )
