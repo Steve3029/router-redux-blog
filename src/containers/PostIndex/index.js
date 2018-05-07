@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import { fetchPosts } from '../../actions'
@@ -22,10 +21,4 @@ class PostIndex extends Component {
   }
 }
 
-function mapPropsToDidpatch(dispatch) {
-  return {
-    fetchPosts: bindActionCreators(fetchPosts, dispatch)
-  }
-}
-
-export default connect(null, mapPropsToDidpatch)(PostIndex)
+export default connect(null, { fetchPosts })(PostIndex)
