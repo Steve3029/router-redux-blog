@@ -6,7 +6,9 @@ import PostIndex from '../PostIndex'
 const App = () => {
   return (
     <Router>
-      <Route path="/" component={PostIndex} />
+      <div className="container">
+        <Route path="/" component={PostIndex} />
+      </div>
     </Router>
   )
 }
