@@ -1,19 +1,10 @@
 import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
 
+import renderField from './renderFormField'
+import validate from './formValidate'
+
 class PostNew extends Component {
-  renderField({label, type, input, mark: As, ...props}) {
-    return (
-      <div className="form-group">
-        <label>{label}</label>
-        <As 
-          className="form-control"
-          type={type}
-          {...input}
-        />
-      </div>
-    )
-  }
 
   render() {
     return (
@@ -23,20 +14,20 @@ class PostNew extends Component {
           name="title"
           mark="input" 
           type="text"
-          component={this.renderField} 
+          component={renderField} 
         />
         <Field 
           label="Categories"
-          name="Categories"
+          name="categories"
           mark="input"  
           type="text"
-          component={this.renderField} 
+          component={renderField} 
         />
         <Field 
           label="Content"
           name="content"
           mark="textarea" 
-          component={this.renderField} 
+          component={renderField} 
         />
       </form>
     )
@@ -44,5 +35,6 @@ class PostNew extends Component {
 }
 
 export default reduxForm({
+  validate,
   form: 'PostNewForm'
 })(PostNew)
