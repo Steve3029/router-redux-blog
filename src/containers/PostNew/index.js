@@ -29,6 +29,7 @@ class PostNew extends Component {
           mark="textarea" 
           component={renderField} 
         />
+        <button type="submit" className="btn btn-primary">Submit</button>
       </form>
     )
   }

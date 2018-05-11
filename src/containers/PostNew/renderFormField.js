@@ -9,7 +9,7 @@ const renderField = ({label, type, input, mark: As, ...props}) => {
         type={type}
         {...input}
       />
-      {props.meta.error}
+      {props.meta.touched && props.meta.error}
     </div>
   )
 }
