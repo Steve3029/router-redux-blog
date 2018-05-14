@@ -1,14 +1,23 @@
 import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import renderField from './renderFormField'
 import validate from './formValidate'
+import { createPost } from '../../actions'
+
+import './style.css'
 
 class PostNew extends Component {
+  onSubmit(values) {
+    this.props.createPost(values)
+  }
 
   render() {
+    const { handleSubmit } = this.props
     return (
-      <form>
+      <form className="needs-validation" noValidate onSubmit={handleSubmit(this.onSubmit.bind(this))} >
         <Field 
           label="Title"
           name="title"
@@ -30,6 +39,8 @@ class PostNew extends Component {
           component={renderField} 
         />
         <button type="submit" className="btn btn-primary">Submit</button>
+        {' '}
+        <Link to="/" className="btn btn-danger">Cancel</Link>
       </form>
     )
   }
@@ -38,4 +49,6 @@ class PostNew extends Component {
 export default reduxForm({
   validate,
   form: 'PostNewForm'
-})(PostNew)
+})(
+  connect(null, {createPost})(PostNew)
+)

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const renderField = ({label, type, input, mark: As, ...props}) => {
+const renderField = ({label, type, input, mark: As, meta: {touched, error}, ...props}) => {
   return (
     <div className="form-group">
       <label>{label}</label>
@@ -8,8 +8,11 @@ const renderField = ({label, type, input, mark: As, ...props}) => {
         className="form-control"
         type={type}
         {...input}
+        required
       />
-      {props.meta.touched && props.meta.error}
+      <div>
+        {touched && error}
+      </div>
     </div>
   )
 }
