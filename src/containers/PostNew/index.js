@@ -41,7 +41,6 @@ class PostNew extends Component {
           component={renderField} 
         />
         <button type="submit" className="btn btn-primary">Submit</button>
-        {' '}
         <Link to="/" className="btn btn-danger">Cancel</Link>
       </form>
     )
