@@ -6,7 +6,7 @@ export const FETCH_SIGNGLE_POST = 'FETCH_SINGLE_POST'
 export const DELETE_POST = 'DELETE_POST'
 
 const base_url = 'http://reduxblog.herokuapp.com/api'
-const api_key = 'octopus1001'
+const api_key = ''
 
 export function fetchPosts() {
   const request = axios.get(`${base_url}/posts`, {
